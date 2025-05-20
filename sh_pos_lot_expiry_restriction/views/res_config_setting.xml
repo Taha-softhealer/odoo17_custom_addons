@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sh_pos_expiry_lot_restriction_inherit" model="ir.ui.view">
+        <field name="name">sh.pos.expiry.lot.res.config.settings.view.form.inherited</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="before">
+                <block title="POS Lot Expiration Restriction" id="pos_lot_expiration">
+                    <setting help="Raise Warning for product about to Expire">
+                        <field name="pos_lot_expiry_warning" />
+                    </setting>
+                    <setting help="Restrict Expire product to add in cart">
+                        <field name="pos_restrict_lot_expiry" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
