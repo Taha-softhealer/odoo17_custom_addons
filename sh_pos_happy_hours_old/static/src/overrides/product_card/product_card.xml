@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sh_pos_happy_hours.ProductCard" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension">
+        <xpath expr="//div[@t-if='props.imageUrl']" position="after">
+            <!-- <span t-if="props.productCartQty">
+            </span> -->
+            <div class="">
+                <!-- <span class="bg-success text-white" t-if="props.product.sh_sale_lable"
+                t-esc="props.product.sh_sale_lable"></span> -->
+                <!-- <t t-esc="console.log(props)"/> -->
+                <!-- <span class="bg-success w-50 opacity-50 text-white px-1 py-1 position-absolute top-0 start-0 rounded" t-if="props.product.sh_sale_lable">
+                    <t t-esc="props.product.sh_sale_lable"/>
+                </span> -->
+
+            </div>
+        </xpath>
+</t>
+</templates>

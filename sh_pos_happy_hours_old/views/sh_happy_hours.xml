@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sh_happy_hours_list" model="ir.ui.view">
+        <field name="name">sh.happy.hours.list</field>
+        <field name="model">sh.happy.hours</field>
+        <field name="arch" type="xml">
+            <tree string="Happy Hours">
+                <field name="name"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_happy_hours_form" model="ir.ui.view">
+        <field name="name">sh.happy.hours.form</field>
+        <field name="model">sh.happy.hours</field>
+        <field name="arch" type="xml">
+            <form string="Happy Hours">
+                <sheet>
+                    <group>
+                        <field name="name"></field>
+                    </group>
+                    <group string="Offer Time">
+                            <!-- <label class="fw-bold" for="sh_everyday"></label>
+                            <field name="sh_everyday"></field> -->
+                            <div class="d-flex">
+                                <label class="fw-bold" for="sh_everyday"></label>
+                                <field name="sh_everyday"></field>
+                            </div>
+                            <div></div>
+                        <group invisible="sh_everyday">
+                            <field name="sh_starting_duration" required="not sh_everyday"></field>
+                            <field name="sh_ending_duration" required="not sh_everyday"></field>
+                        </group>
+                        <div>
+                            <div class="d-flex">
+                                <group>
+                                    <field name="sh_starting_time" widget="float_time"
+                                        invisible="not sh_everyday" required="sh_everyday"></field>
+                                </group>
+                                <field name="sh_starting_type" invisible="not sh_everyday"
+                                    required="sh_everyday"></field>
+                            </div>
+                            <div class="d-flex">
+                                <group>
+                                    <field name="sh_ending_time" widget="float_time"
+                                        invisible="not sh_everyday" required="sh_everyday"></field>
+                                </group>
+                                <field name="sh_ending_type" invisible="not sh_everyday"
+                                    required="sh_everyday"></field>
+                            </div>
+                        </div>
+                    </group>
+                    <group string="Set Discount">
+                        <group>
+                            <field name="sh_discount_on_product"></field>
+                            <field name="sh_product_ids" invisible="not sh_discount_on_product"
+                                widget="many2many_tags"></field>
+                        </group>
+                        <group>
+                            <field name="sh_discount"></field>
+                            <field name="sh_set_pricelist"></field>
+                            <field name="sh_offer_pricelist_id" invisible="not sh_set_pricelist"></field>
+                        </group>
+                    </group>
+                    <group string="Set Packlist">
+                        <field name="sh_set_pack_pricelist"></field>
+                        <field name="sh_packlist_ids" invisible="not sh_set_pack_pricelist"></field>
+                    </group>
+                    <group string="Set Extra Product List">
+                        <field name="sh_buy_x_get_1_extra"></field>
+                        <field name="sh_one_free_product_ids" invisible="not sh_buy_x_get_1_extra"></field>
+                    </group>
+                    <group string="Set Customer">
+                        <group>
+                            <field name="sh_not_apply_wo_customer"></field>
+                            <field name="sh_set_on_all_customer"></field>
+                        </group>
+                        <group>
+                            <field name="sh_set_on_customer_with_x_order"
+                                invisible="not sh_set_on_all_customer"></field>
+                            <field name="sh_pos_order_count"
+                                invisible="not sh_set_on_all_customer or not sh_set_on_customer_with_x_order"></field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sh_happy_hours_action" model="ir.actions.act_window">
+        <field name="name">sh.happy.hours.action</field>
+        <field name="res_model">sh.happy.hours</field>
+        <field name="name">Happy Hours</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+        id="sh_happy_hours_menu"
+        name="Happy Hours Discount"
+        action="sh_happy_hours_action"
+        parent="point_of_sale.menu_point_config_product" />
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sh_pos_happy_hours.access_sh_happy_hours,access_sh_happy_hours,sh_pos_happy_hours.model_sh_happy_hours,base.group_user,1,1,1,1
+sh_pos_happy_hours.access_sh_available_pack_pricelist_lines,access_sh_available_pack_pricelist_lines,sh_pos_happy_hours.model_sh_available_pack_pricelist_lines,base.group_user,1,1,1,1
+sh_pos_happy_hours.access_sh_get_one_product_free,access_sh_get_one_product_free,sh_pos_happy_hours.model_sh_get_one_product_free,base.group_user,1,1,1,1

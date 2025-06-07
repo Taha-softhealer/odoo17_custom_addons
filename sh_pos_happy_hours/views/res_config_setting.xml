@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sh_happy_hours_res_config_point_of_sale_form_inherit" model="ir.ui.view">
+        <field name="name">sh.happy.hours.res.config.point_of_sale.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_accounting_section']" position="before">
+                <block title="Happy Hours" id="pos_configure_logo">
+                    <setting id="pos_happy_hours" help="Choos from multiple Happy Hours offer based on pricelist, discount, products and customer in POS.">
+                        <field name="pos_happy_hours_id"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

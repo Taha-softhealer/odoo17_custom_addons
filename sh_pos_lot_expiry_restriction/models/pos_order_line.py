@@ -2,6 +2,7 @@
 # Part of Softhealer Technologies. See LICENSE file for full copyright and licensing details.
 from odoo import api, fields, models
 from odoo.tools import float_compare
+from odoo.exceptions import UserError, ValidationError
 
 
 class PosOrderLine(models.Model):
@@ -12,7 +13,7 @@ class PosOrderLine(models.Model):
         self.check_access_rule("read")
         pos_config = self.env["pos.config"].browse(self._context.get("config_id"))
         if not pos_config:
-            raise UserError(_("No PoS configuration found"))
+            raise UserError(("No PoS configuration found"))
 
         src_loc_quants = (
             self.sudo()

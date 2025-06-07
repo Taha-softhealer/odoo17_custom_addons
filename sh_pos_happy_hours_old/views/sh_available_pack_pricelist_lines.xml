@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sh_available_pack_pricelist_lines_list" model="ir.ui.view">
+        <field name="name">sh.available.pack.pricelist.lines.list</field>
+        <field name="model">sh.available.pack.pricelist.lines</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" string="">
+                <field name="name" column_invisible="1"></field>
+                <field name="sh_product_id"></field>
+                <field name="sh_quantity"></field>
+                <field name="sh_pack_product_id"></field>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="sh_availabe_pack_pricelist_lines_action" model="ir.actions.act_window">
+        <field name="name">sh.available.pack.pricelist.lines</field>
+        <field name="res_model">sh.available.pack.pricelist.lines</field>
+        <field name="name">Happy Hours</field>
+        <field name="view_mode">list</field>
+    </record>
+    
+    <record id="sh_get_one_product_free_list" model="ir.ui.view">
+        <field name="name">sh.get.one.product.free.list</field>
+        <field name="model">sh.get.one.product.free</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" string="">
+                <field name="name" column_invisible="1"></field>
+                <field name="sh_product_id"></field>
+                <field name="sh_quantity"></field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sh_get_one_product_free_action" model="ir.actions.act_window">
+        <field name="name">sh.get.one.product.free.action</field>
+        <field name="res_model">sh.get.one.product.free</field>
+        <field name="name">Happy Hours</field>
+        <field name="view_mode">list</field>
+    </record>
+
+</odoo>

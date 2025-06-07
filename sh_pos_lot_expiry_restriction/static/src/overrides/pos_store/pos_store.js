@@ -46,7 +46,7 @@ patch(PosStore.prototype, {
             let daysToAdd = product.use_expiration_date
                 ? product.alert_time
                 : 0;
-            let lotName = result.newPackLotLines[0]?.lot_name;
+            let lotName = result?.newPackLotLines[0]?.lot_name;
             let addedDate = new Date();
             let selectedLot = existingLots?.filter(
                 (lot) => lot.name == lotName
@@ -75,13 +75,14 @@ patch(PosStore.prototype, {
                 this.config.sh_restrict_lot_expiry
             ) {
                 this.popup.add(ErrorPopup, {
-                    title: "Expiration Alert",
+                    title: "Expiry Warning",
                     body:
-                        "The " +
+                        "You can't sell it, Because Lot/Serial Number " +
                         lotName +
+                        " of " +
+                        productName +
                         " has been expired on " +
-                        expiry_date?.toLocaleDateString() +
-                        " so you can't sell it ",
+                        expiry_date?.toLocaleDateString()
                 });
                 return;
             } else if (
@@ -91,12 +92,14 @@ patch(PosStore.prototype, {
                 this.config.sh_lot_expiry_warning
             ) {
                 let _confirmed = await this.popup.add(ConfirmPopup, {
-                    title: "Expiration Alert",
+                    title: "Alert Warning",
                     body:
-                        "The " +
+                        "The Lot/Serial Number " +
                         lotName +
+                        " of " +
+                        productName +
                         " will expire on " +
-                        Currentdate?.toLocaleDateString(),
+                        expiry_date?.toLocaleDateString(),
                 });
                 console.log(_confirmed);
                 

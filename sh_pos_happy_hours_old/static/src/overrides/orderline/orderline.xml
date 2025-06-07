@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sh_pos_happy_hours.Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//li[hasclass('internal-note')]" position="before">
+            <span class="bg-success w-50 text-white px-1 py-1 rounded" t-if="line.sh_sale_lable">
+                <t t-esc="line.sh_sale_lable"/>
+            </span>
+        </xpath>
+</t>
+</templates>
