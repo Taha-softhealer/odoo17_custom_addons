@@ -8,7 +8,7 @@ patch(Order.prototype,{
         let result= await super.add_product(product, options)
         let happy_hours_id_config = this.pos.config.sh_happy_hours_id[0];        
         let happy_hours_id=this.env.services.pos.sh_happy_hour_by_id[happy_hours_id_config]
-        console.log(result);
+        console.log("result",result);
         if (
             this.pos.sh_sale_hours() &&
             // this.pos.sh_check_customer() &&
