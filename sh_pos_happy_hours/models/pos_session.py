@@ -8,6 +8,7 @@ class PosSession(models.Model):
         loaded_data['sh_happy_hour_by_id'] = {sh_happy_hours['id']: sh_happy_hours for sh_happy_hours in loaded_data['sh.happy.hours']}
         loaded_data['sh_available_pack_pricelist_lines_id'] = {sh_available_pack_pricelist_lines['id']: sh_available_pack_pricelist_lines for sh_available_pack_pricelist_lines in loaded_data['sh.available.pack.pricelist.lines']}
         loaded_data['sh_get_one_product_free_id'] = {sh_get_one_product_free['id']: sh_get_one_product_free for sh_get_one_product_free in loaded_data['sh.get.one.product.free']}
+        loaded_data['sh_pricelist_by_id'] = {pricelist['id']: pricelist for pricelist in loaded_data['product.pricelist']}
 
 
     def _pos_ui_models_to_load(self):
@@ -44,18 +45,6 @@ class PosSession(models.Model):
         vals = super()._loader_params_res_partner()
         vals["search_params"]["fields"] += ["pos_order_count"]
         return vals
-
-
-
-    # def _loader_params_pos_order_line(self):
-    #     return {
-    #         'search_params': {
-    #             'fields': ['id', 'order_id', 'product_id', 'qty', 'sh_free_pack_product','sh_free_pack_product_of_id','sh_sale_lable'],
-    #         },
-    #     }
-
-    # def _get_pos_ui_pos_order_line(self, params):
-    #     return self.env['pos.order.line'].search_read(**params['search_params'])
 
         
     def _get_pos_ui_sh_happy_hours(self, params):
