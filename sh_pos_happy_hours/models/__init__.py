@@ -5,3 +5,4 @@ from . import sh_happy_hours
 from . import sh_available_pack_pricelist_lines
 from . import res_config_setting
 from . import pos_session
+from . import pos_orderline

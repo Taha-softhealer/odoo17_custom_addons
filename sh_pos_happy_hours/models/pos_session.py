@@ -39,6 +39,24 @@ class PosSession(models.Model):
                 'fields': [],
             }
         }
+
+    def _loader_params_res_partner(self):
+        vals = super()._loader_params_res_partner()
+        vals["search_params"]["fields"] += ["pos_order_count"]
+        return vals
+
+
+
+    # def _loader_params_pos_order_line(self):
+    #     return {
+    #         'search_params': {
+    #             'fields': ['id', 'order_id', 'product_id', 'qty', 'sh_free_pack_product','sh_free_pack_product_of_id','sh_sale_lable'],
+    #         },
+    #     }
+
+    # def _get_pos_ui_pos_order_line(self, params):
+    #     return self.env['pos.order.line'].search_read(**params['search_params'])
+
         
     def _get_pos_ui_sh_happy_hours(self, params):
         return self.env['sh.happy.hours'].search_read(**params['search_params'])
@@ -48,5 +66,3 @@ class PosSession(models.Model):
     
     def _get_pos_ui_sh_get_one_product_free(self, params):
         return self.env['sh.get.one.product.free'].search_read(**params['search_params'])
-
-        

@@ -17,6 +17,9 @@
         "point_of_sale._assets_pos": [
             "sh_pos_happy_hours/static/src/overrides/models/pos_model.js",
             "sh_pos_happy_hours/static/src/overrides/pos_store/pos_store.js",
+            "sh_pos_happy_hours/static/src/overrides/pos_store/order_summary.js",
+            "sh_pos_happy_hours/static/src/overrides/navbar/navbar.js",
+            "sh_pos_happy_hours/static/src/overrides/navbar/navbar.xml"
         ],
     },
     "auto_install": False,
